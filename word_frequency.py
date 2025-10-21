@@ -50,5 +50,7 @@ def main():
     sentence = get_sentence()
     words, frequencies = calculate_frequencies(sentence)
     print_frequencies(words, frequencies)
+
+main()
     
 

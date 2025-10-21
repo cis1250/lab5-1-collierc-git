@@ -34,8 +34,8 @@ def get_sentence():
 
 def calculate_frequencies(user_sentence):
     list1 = user_sentence.split(' ')
-    list1[0] = list1[0].lower()
-    list1[-1] = list1[-1][.-1]
+    list1[0] = list1[0].lower() #use the first index to remove the capital letter
+    list1[-1] = list1[-1][:-1] #using negaite indexing to acces the last element and remove the period
     tempset = set(list1)
     list2 = list(tempset)
     list3 = [0]*len(list2)

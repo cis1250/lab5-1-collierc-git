@@ -4,34 +4,41 @@
 # TODO: (Read detailed instructions in the Readme file)
 def get_input():
   while True:
-  while True:
-    input = input()
-    try:
-      terms = int(input)
+    while True:
+      test = input()
+      try:
+        terms = int(test)
+        break
+      except ValueError:
+        del test
+        print("please input an integer")
+    if terms > 0:
       break
-    except ValueError:
-      del input
-      print("please input an integer")
-  if terms > 0:
-    return input
-    break
-  else:
-    del input
-    print("please input a positive integer")
+    else:
+      del test
+      print("please input a positive integer")
+  return terms
 
 def calculate(digits):
-  print("calculating fibbonacci sequence up to " + digits + " digits")
+  print("calculating fibbonacci sequence up to " + str(digits) + " digits")
   value1 = 0
   value2 = 1
+  temp = []
+  
   for x in range (0,digits):
     if x == 0:
-      print(value1)
+      temp.append(value1)
     else:
       value3 = value1 + value2
       value1 = value2
       value2 = value3
-      print(value2)
+      temp.append(value1)
+  return temp
+
+def print_sequence(list):
+  print(list)
 
 print("please enter the amount of terms you want to print")
 terms = get_input()
-calculate(terms)
+sequence = calculate(terms)
+print_sequence(sequence)

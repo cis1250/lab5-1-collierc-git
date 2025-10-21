@@ -26,22 +26,25 @@ def is_sentence(text):
     return True
 
 def get_sentence():
+    #loop to check if its a sentence, is only broken once valid input is recieved
     while True:
         user_sentence = input("Enter a sentence: ")
-        if is_sentence(user_sentence):
+        if is_sentence(user_sentence): 
             break
+        else:
+            print("please enter a valid sentence")
     return user_sentence
 
 def calculate_frequencies(user_sentence):
     list1 = user_sentence.split(' ')
     list1[0] = list1[0].lower() #use the first index to remove the capital letter
     list1[-1] = list1[-1][:-1] #using negaite indexing to acces the last element and remove the period
-    tempset = set(list1)
-    list2 = list(tempset)
-    list3 = [0]*len(list2)
+    tempset = set(list1) #turning the sentence into a set to remove repeaded words
+    list2 = list(tempset) #making another set with removed repeated words
+    list3 = [0]*len(list2) #making a third list to store the repitition of words
     for words in list1:
-        list3[list2.index(words)] += 1
-    return list2, list3
+        list3[list2.index(words)] += 1 #once it sees a word in the sentence adds one to the integer in the counting list
+    return list2, list3 #return the list without repitition and the list which counts the frequency
 
 def print_frequencies(list1, list2):
     for words in list1:

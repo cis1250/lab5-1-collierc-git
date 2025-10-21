@@ -43,8 +43,8 @@ def calculate_frequencies(user_sentence):
 
 def print_frequencies(list1, list2):
     for words in list1:
-    print(list1[words] + ":")
-    print(list2[list1.index(words)])
+        print(list1[words] + ":")
+        print(list2[list1.index(words)])
 
 def main():
     sentence = get_sentence()

@@ -34,6 +34,8 @@ def get_sentence():
 
 def calculate_frequencies(user_sentence):
     list1 = user_sentence.split(' ')
+    list1[0] = list1[0].lower()
+    list1[-1] = list1[-1][.-1]
     tempset = set(list1)
     list2 = list(tempset)
     list3 = [0]*len(list2)
@@ -43,7 +45,7 @@ def calculate_frequencies(user_sentence):
 
 def print_frequencies(list1, list2):
     for words in list1:
-        print(list1[words] + ":")
+        print(words + ":")
         print(list2[list1.index(words)])
 
 def main():
